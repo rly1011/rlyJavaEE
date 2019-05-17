@@ -18,7 +18,7 @@ import java.io.PrintStream;
  * 2.doGet(HttpServletRequest req, HttpServletResponse resp)
  * 3.doPost（HttpServletRequest req, HttpServletResponse res)
  *
- * 在servlet中默认情况下，无论你是get还是post 提交过来都会经过service()方法来处理，然后转向到doGet或是doPost方法，
+ * 在servlet中默认情况下，无论你是get还是post提交过来都会经过service()方法来处理，然后转向到doGet或是doPost方法，
  * 注意，sun只是定义了servlet接口，而实现servlet接口的就是类似于tomcat的服务器
  *
  *

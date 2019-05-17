@@ -21,7 +21,7 @@ import java.io.IOException;
 public class LoginServlet extends HttpServlet {
 
     @Override
-    public void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+    public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         String errMsg ="";
         RequestDispatcher rd;
         String username = req.getParameter( "username" );
