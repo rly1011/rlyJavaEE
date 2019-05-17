@@ -17,7 +17,7 @@
     }%>
 </span>
 <h1>请输入用户名与密码</h1>
-<form id="login" method="get" action="login">
+<form id="login" method="post" action="login">
     用户名：<input type="text" name="username" />
     密码：<input type="password" name="password">
     <input type="submit" value="登录">

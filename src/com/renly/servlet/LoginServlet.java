@@ -20,8 +20,19 @@ import java.io.IOException;
 @WebServlet(name = "login",urlPatterns = {"/login"})
 public class LoginServlet extends HttpServlet {
 
+    /**
+     * servlet有三个方法doGet()、doPost()、service()
+     * 1.doGet()与doPost()分别定义表单提交的get和post类型，
+     * 其中get与post类型特点：
+     * (1)doGet方法提交表单会在url后边显示提交的内容，不安全。doPost不会
+     * (2)doGet方法只能提交256个字符(1024字节)，而doPost没有限制，
+     * (3)get方式数据的传输载体是URL,Post是HTTP头键值对（只能以form方式提交）。
+     *
+     * service()
+     * 在servlet中默认情况下，无论你是get还是post 提交过来都会经过service()方法来处理，然后转向到doGet
+     */
     @Override
-    public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+    public void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         String errMsg ="";
         RequestDispatcher rd;
         String username = req.getParameter( "username" );
@@ -50,4 +61,5 @@ public class LoginServlet extends HttpServlet {
         }
 
     }
+
 }
