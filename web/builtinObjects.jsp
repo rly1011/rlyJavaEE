@@ -24,23 +24,23 @@ session 对象是由服务器自动创建的与用户请求相关的对象。
  否则application对象中保存的信息会在整个应用中都有效。与session对象相比，
  application对象生命周期更长，类似于系统的“全局变量”。
 
-5、out 对象
+5、out对象
 out 对象用于在Web浏览器内输出信息，并且管理应用服务器上的输出缓冲区。
 在使用 out 对象输出数据时，可以对数据缓冲区进行操作，及时清除缓冲区
 中的残余数据，为其他的输出让出缓冲空间。待数据输出完毕后，要及时关闭输出流。
 
-6、pageContext 对象
+6、pageContext对象
 pageContext 对象的作用是取得任何范围的参数，通过它可以获取 JSP页面的
 out、request、reponse、session、application 等对象。
 pageContext对象的创建和初始化都是由容器来完成的，在JSP页面中可以直接使用 pageContext对象。
 
-7、config 对象
+7、config对象
 config 对象的主要作用是取得服务器的配置信息。通过 pageConext对象的
 getServletConfig() 方法可以获取一个config对象。当一个Servlet 初始化时，
 容器把某些信息通过 config对象传递给这个 Servlet。 开发者可以在web.xml文件中
 为应用程序环境中的Servlet程序和JSP页面提供初始化参数。
 
-8、page 对象
+8、page对象
 page对象代表JSP本身,只有在JSP页面内才是合法的。page隐含对象本质上包含
 当前 Servlet接口引用的变量，类似于Java编程中的this指针。
 
