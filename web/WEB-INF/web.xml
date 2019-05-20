@@ -17,7 +17,7 @@
     <!--
         <servlet>
             <servlet-name>FirstServlet</servlet-name>
-            <servlet-class>com.renly.servlet.FirstServlet</servlet-class>
+            <servlet-class>com.renly.FirstServlet</servlet-class>
         </servlet>
         <servlet-mapping>
             <servlet-name>FirstServlet</servlet-name>
