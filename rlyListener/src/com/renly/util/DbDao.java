@@ -1,12 +1,13 @@
 package com.renly.util;
 
 import com.alibaba.druid.pool.DruidDataSource;
-import com.alibaba.druid.pool.DruidPooledConnection;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.ArrayListHandler;
 
+import java.io.*;
 import java.sql.*;
 import java.util.List;
+import java.util.Properties;
 
 /**
  * @author ${任岚杨}
@@ -26,11 +27,14 @@ public  class DbDao {
 
     private static Connection conn;
 
+    public DbDao() throws FileNotFoundException {
+    }
+
     /**
      *获取数据库连接
      * @return
      */
-    public static DruidDataSource getConn() throws ClassNotFoundException, SQLException {
+    public static DruidDataSource getConn() throws ClassNotFoundException, SQLException, IOException {
         DruidDataSource dataSource =null;
         if(conn == null){
             //第三步：注册驱动
@@ -61,7 +65,7 @@ public  class DbDao {
      * @throws SQLException
      * @throws ClassNotFoundException
      */
-    public static void insert(String sql) throws SQLException, ClassNotFoundException {
+    public static void insert(String sql) throws SQLException, ClassNotFoundException, IOException {
         DruidDataSource druidDataSource = getConn();
         QueryRunner queryRunner = new QueryRunner(druidDataSource);
         queryRunner.update( sql );
@@ -73,7 +77,7 @@ public  class DbDao {
      * @param sql
      * @return
      */
-    public static List query(String sql) throws SQLException, ClassNotFoundException{
+    public static List query(String sql) throws SQLException, ClassNotFoundException, IOException {
         DruidDataSource druidDataSource = getConn();
         QueryRunner queryRunner = new QueryRunner(druidDataSource);
         List<Object[]> list = queryRunner.query( sql,new ArrayListHandler() );
@@ -87,7 +91,7 @@ public  class DbDao {
      * @throws SQLException
      * @throws ClassNotFoundException
      */
-    public static  void  modify(String sql) throws SQLException, ClassNotFoundException{
+    public static  void  modify(String sql) throws SQLException, ClassNotFoundException, IOException {
         DruidDataSource druidDataSource = getConn();
         QueryRunner queryRunner = new QueryRunner(druidDataSource);
         queryRunner.update( sql );
@@ -100,7 +104,7 @@ public  class DbDao {
      * @throws SQLException
      * @throws ClassNotFoundException
      */
-    public  static  void delete(String sql) throws SQLException, ClassNotFoundException {
+    public  static  void delete(String sql) throws SQLException, ClassNotFoundException, IOException {
         DruidDataSource druidDataSource = getConn();
         QueryRunner queryRunner = new QueryRunner(druidDataSource);
         queryRunner.update( sql );
@@ -189,4 +193,18 @@ public  class DbDao {
 //        return null;
 //    }
 
+
+    //根据Key读取Value
+    public static   String GetValueByKey(String filePath, String key) {
+        Properties pps = new Properties();
+        try {
+            InputStream in = new BufferedInputStream(new FileInputStream(filePath));
+            pps.load(in);
+            String value = pps.getProperty(key);
+            return value;
+        }catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }

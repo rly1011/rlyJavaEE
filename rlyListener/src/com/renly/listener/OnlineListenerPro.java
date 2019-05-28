@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebListener;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -41,6 +42,8 @@ public class OnlineListenerPro implements ServletContextListener {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
@@ -77,6 +80,8 @@ public class OnlineListenerPro implements ServletContextListener {
                 } catch (ClassNotFoundException e1) {
                     e1.printStackTrace();
                 } catch (ParseException e1) {
+                    e1.printStackTrace();
+                } catch (IOException e1) {
                     e1.printStackTrace();
                 }
             }

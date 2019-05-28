@@ -7,6 +7,7 @@ import javax.servlet.ServletRequestListener;
 import javax.servlet.annotation.WebListener;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -57,7 +58,11 @@ public class RequestListenerPro implements ServletRequestListener {
                 //如果是老用户，修改数据
             if(rs.size()!=0){
                 sql ="update online_inf set ip='"+ip+"',page='"+page+"',systime='"+now+"' where sessionId='"+sesssionId+"';";
-                DbDao.modify(sql);
+                try {
+                    DbDao.modify(sql);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
 
             }else {
                 //新用户
@@ -67,6 +72,8 @@ public class RequestListenerPro implements ServletRequestListener {
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
