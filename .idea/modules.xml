@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/rlyFilter/rlyFilter.iml" filepath="$PROJECT_DIR$/rlyFilter/rlyFilter.iml" />
       <module fileurl="file://$PROJECT_DIR$/rlyJavaEE.iml" filepath="$PROJECT_DIR$/rlyJavaEE.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rlyListener/rlyListener.iml" filepath="$PROJECT_DIR$/rlyListener/rlyListener.iml" />
       <module fileurl="file://$PROJECT_DIR$/rlyServlet/rlyServlet.iml" filepath="$PROJECT_DIR$/rlyServlet/rlyServlet.iml" />
     </modules>
   </component>
