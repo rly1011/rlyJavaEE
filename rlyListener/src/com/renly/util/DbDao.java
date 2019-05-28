@@ -13,14 +13,13 @@ import java.util.Properties;
  * @author ${任岚杨}
  * @title: DbDao
  * @projectName rlyJavaEE
- * @description: JDBC版本DAO层
- * @date 2019/5/2113:13
+ * @description: 利用Druid作为连接池，利用dbutils做JDBC操作。
+ * @date 2019/5/21 13:13
  */
 public  class DbDao {
     // 第一步：定义数据驱动名称和url路径
     private static String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
     private static String DB_URL = "jdbc:mysql://localhost/rlyjavaee?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC";
-
     // 第二步：定义数据库用户名和密码
     private static String USER = "root";
     private static String PASS = "zxcvbnm2019";
@@ -194,17 +193,4 @@ public  class DbDao {
 //    }
 
 
-    //根据Key读取Value
-    public static   String GetValueByKey(String filePath, String key) {
-        Properties pps = new Properties();
-        try {
-            InputStream in = new BufferedInputStream(new FileInputStream(filePath));
-            pps.load(in);
-            String value = pps.getProperty(key);
-            return value;
-        }catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
 }
